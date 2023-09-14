@@ -3,5 +3,10 @@
       "image": "/src/content/blog/_images/tsa.png",
       "description": "tests description",
       "date":"08/08/2023",
-      "featured": 1
+      "featured": 1,
+      "blogData":{
+            "image": "/src/content/blog/_images/tsa.png",
+            "title": "test",
+            "content": "121312312312312313"
+      }
 }

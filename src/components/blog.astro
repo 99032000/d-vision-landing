@@ -1,17 +1,26 @@
 ---
-import { getCollection } from "astro:content";
-import ContentSection from "~/components/content-section.astro";
-import BlogListCard from "./blogListCard.astro";
+import type{ CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon";
+import { resolveImage } from "~/content/blog/_resolveImage";
 
-const featuredSites = await getCollection(
-  "blog",
-  ({ data }) => "featured" in data,
-);
-const orderedSites = featuredSites.sort(
-  (a, b) => a.data.featured! - b.data.featured!,
-);
+type Props = {
+  site: CollectionEntry<"blog">;
+};
+const { site } = Astro.props;
+const image = await resolveImage(site);
+console.log(site);
 //! todo: add post page
 ---
 
-<div class=""></div>
+<div class=" mt-32 max-w-[960px] mx-auto px-8 mb-16 block">
+    <div class=" flex w-full items-center"> <Icon name="ant-design:caret-left-filled" class=" h-4" />Back</div>
+    <div class=" mx-4 mt-8">
+      <img class=" w-full md:h-72 h-36 object-cover" src={image.src}/>
+      <h1 class=" mt-8 text-2xl font-bold">{site.data.blogData.title}</h1>
+      <h2 class="float-right opacity-50 text-sm">
+        published at {site.data.date}
+      </h2>
+      <h2 class=" mt-8">{site.data.blogData.content}</h2>
+    </div>
+</div>
 
