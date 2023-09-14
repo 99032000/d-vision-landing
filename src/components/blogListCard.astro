@@ -1,11 +1,13 @@
 ---
 import { Picture } from "@astrojs/image/components";
 import type { CollectionEntry } from "astro:content";
+import { resolveImage } from "~/content/blog/_resolveImage";
 export interface Props {
   site: CollectionEntry<"blog">;
 }
 
 const { site } = Astro.props;
+const image = await resolveImage(site);
 const widths = [450, 800];
 const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 ---
