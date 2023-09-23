@@ -39,7 +39,7 @@ const description =
       gtag('config', 'G-F2CCN5N222');
     </script>
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google ads tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11345318298">
     </script>
     <script>
@@ -48,8 +48,31 @@ const description =
       gtag('js', new Date());
 
       gtag('config', 'AW-11345318298');
-    </script>
 
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      }; 
+      gtag('event', 'conversion', {
+          'send_to': 'AW-11345318298/RJ7ICISJqeQYEJqj76Eq',
+          'event_callback': callback
+      });
+      return false;
+    }
+
+    // Find all links with the `conversion` class on the page.
+    const links = document.querySelectorAll('a.conversion');
+
+    // Handle clicks on each link.
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        gtag_report_conversion()
+      });
+});
+    </script>
+    
     <!-- social media -->
     <meta property="og:title" content="DVISION Web Solution" />
     <meta property="og:type" content="website" />
