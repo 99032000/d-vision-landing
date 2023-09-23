@@ -19,6 +19,11 @@ const links: Array<FooterLink> = [
     description: "DIVISON on Instagram",
     icon: "fa-brands:instagram",
   },
+  {
+    url: "https://twitter.com/dvisionwebau",
+    description: "DIVISON on X aka Twitter",
+    icon: "fa-brands:twitter",
+  },
 ];
 ---
 
@@ -29,7 +34,7 @@ const links: Array<FooterLink> = [
   <div class="absolute inset-0 overflow-hidden opacity-40">
     <HeroImage />
   </div>
-  <ul class="relative grid grid-cols-3 gap-4">
+  <ul class="relative grid grid-cols-4 gap-4">
     {
       links.map((link) => (
         <li>
